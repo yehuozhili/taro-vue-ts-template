@@ -1,46 +1,48 @@
 <template>
-  <view class="index">
-    <view class="index">
-    <AtNoticebar marquee>
-      欢迎使用 Taro UI Vue
-    </AtNoticebar>
-    <AtButton
-      type="primary"
-      :on-click="handleClick"
-    >
-      AtButton
-    </AtButton>
-    <AtToast :is-opened="show" :text="msg" :on-close="handleClose"></AtToast>
-  </view>
+  <view v-else class="home">
+    <view>bbbbbb</view>
+    <AtButton type="primary" :on-click="atclick">22222</AtButton>
+    <button>213123</button>
   </view>
 </template>
 
-<script>
-// 按需引入, 更小的应用体积
-import { AtButton, AtToast, AtNoticebar } from 'taro-ui-vue'
-import "taro-ui-vue/dist/style/components/button.scss"
-import "taro-ui-vue/dist/style/components/toast.scss"
-import "taro-ui-vue/dist/style/components/noticebar.scss"
-import './index.scss' 
-export default {
-    components: {
-    AtButton,
-    AtToast,
-    AtNoticebar
-  },
-  data () {
-    return {
-      msg: 'Hello world!',
-      show: false
-    }
-  },
-  methods: {
-    handleClick () {
-      this.show = true
-    },
-    handleClose () {
-      this.show = false
-    }
-  },
-    }
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import { AtButton } from "taro-ui-vue";
+import Taro from "@tarojs/taro";
+@Component({
+  components: {
+    AtButton
+  }
+})
+export default class TestHello2 extends Vue {
+  showLoading: boolean = false;
+  pageConfig: any = {};
+  async created(e) {
+    Taro.hideHomeButton();
+    console.log("created", e);
+  }
+
+  get id() {
+    return Taro.getCurrentInstance().router?.params.id || "";
+  }
+
+  init() {
+    console.log("init22");
+  }
+
+  onShow() {
+    console.log("show");
+  }
+  onHide() {
+    console.log("hide");
+  }
+  onLoad(e) {
+    console.log("onload", e);
+  }
+
+  atclick() {
+    console.log("jjjj22");
+  }
+}
 </script>

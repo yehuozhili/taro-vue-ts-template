@@ -21,16 +21,7 @@
   "simulatorPluginLibVersion": {},
   "condition": {
     "miniprogram": {
-      "list": [
-        {
-          "name": "pages/testhello/index",
-          "pathName": "pages/testhello/index",
-          "query": "xxx=11",
-          "scene": "",
-          "launchFrom": "",
-          "location": ""
-        }
-      ]
+      "list": []
     }
   }
 }

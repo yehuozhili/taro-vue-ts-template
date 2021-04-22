@@ -1,5 +1,18 @@
-// ESLint 检查 .vue 文件需要单独配置编辑器：
-// https://eslint.vuejs.org/user-guide/#editor-integrations
 module.exports = {
-  'extends': ['taro/vue']
-}
+  env: {
+    browser: true,
+    es6: true,
+    node: true
+  },
+  extends: ["plugin:vue/essential", "eslint:recommended", "@vue/prettier"],
+  parserOptions: {
+    ecmaVersion: 2021,
+    parser: "@typescript-eslint/parser",
+    sourceType: "module"
+  },
+  plugins: ["vue", "@typescript-eslint"],
+  rules: {
+    "no-empty": 0,
+    "no-async-promise-executor": 0
+  }
+};
